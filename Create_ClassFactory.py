@@ -1,53 +1,55 @@
-def CreateWarehouseClassFactory(bolPallet, bolProduct):
+def CreateWarehouseClassFactory(bolPallet, bolProduct,WHname):
+
     print(' ')
-    print('class Warehouse:')
-    print('    def __init__(self, location):')
-    print('         self.location = location')
+    with open(WHname + "_WarehouseClass.py", "w") as f:
+        f.write("class Warehouse:" + "\n")
+        f.write("    def __init__(self, location):" + "\n")
+        f.write("         self.location = location" + "\n")
 
-    if bolProduct:
-        print('         self.products = {}')
+        if bolProduct:
+            f.write("         self.products = {}" + "\n")
 
-    if bolPallet:
-        print('         self.pallets = {}')
-    print(' ')
+        if bolPallet:
+            f.write("         self.pallets = {}" + "\n")
+        f.write(" " + "\n")
 
-    if bolProduct:
-        print('    def add_product(self, product_name, quantity):')
-        print('         if product_name in self.products:')
-        print('             self.products[product_name] += quantity')
-        print('         else:')
-        print('             self.products[product_name] = quantity')
-        print(' ')
-        print('    def remove_product(self, product_name, quantity):')
-        print('         if product_name in self.products and self.products[product_name] >= quantity:')
-        print('             self.products[product_name] -= quantity')
-        print('         else:')
-        print('             print("Error: Not enough product in stock")')
-        print(' ')
+        if bolProduct:
+            f.write("    def add_product(self, product_name, quantity):" + "\n")
+            f.write("         if product_name in self.products:" + "\n")
+            f.write("             self.products[product_name] += quantity" + "\n")
+            f.write("         else:" + "\n")
+            f.write("             self.products[product_name] = quantity" + "\n")
+            f.write(" " + "\n")
+            f.write("    def remove_product(self, product_name, quantity):" + "\n")
+            f.write("         if product_name in self.products and self.products[product_name] >= quantity:" + "\n")
+            f.write("             self.products[product_name] -= quantity" + "\n")
+            f.write("         else:" + "\n")
+            f.write("             print('Error: Not enough product in stock')" + "\n")
+            f.write(" " + "\n")
 
-    if bolPallet:
-        print('    def add_pallet(self, pallet_id, product_name, quantity):')
-        print('         if pallet_id not in self.pallets:')
-        print('             self.pallets[pallet_id] = (product_name, quantity)')
-        print('             self.add_product(product_name, quantity)')
-        print('         else:')
-        print('             print("Error: Pallet ID already exists")')
-        print(' ')
-        print('    def remove_pallet(self, pallet_id):')
-        print('         if pallet_id in self.pallets:')
-        print('             product_name, quantity = self.pallets[pallet_id]')
-        print('             del self.pallets[pallet_id]')
-        print('             self.remove_product(product_name, quantity)')
-        print('         else:')
-        print('             print("Error: Pallet ID does not exist")')
-        print(' ')
+        if bolPallet:
+            f.write("    def add_pallet(self, pallet_id, product_name, quantity):" + "\n")
+            f.write("         if pallet_id not in self.pallets:" + "\n")
+            f.write("             self.pallets[pallet_id] = (product_name, quantity)" + "\n")
+            f.write("             self.add_product(product_name, quantity)" + "\n")
+            f.write("         else:" + "\n")
+            f.write("             print('Error: Pallet ID already exists') " + "\n")
+            f.write(" " + "\n")
+            f.write("    def remove_pallet(self, pallet_id):" + "\n")
+            f.write("         if pallet_id in self.pallets:" + "\n")
+            f.write("             product_name, quantity = self.pallets[pallet_id]" + "\n")
+            f.write("             del self.pallets[pallet_id]" + "\n")
+            f.write("             self.remove_product(product_name, quantity)" + "\n")
+            f.write("         else:" + "\n")
+            f.write("             print('Error: Pallet ID does not exist')" + "\n")
+            f.write(" " + "\n")
 
-    if bolProduct:
-        print('    def check_stock(self, product_name):')
-        print('         if product_name in self.products:')
-        print('             return self.products[product_name]')
-        print('          else:')
-        print('              return 0')
+        if bolProduct:
+            f.write("    def check_stock(self, product_name):" + "\n")
+            f.write("         if product_name in self.products:" + "\n")
+            f.write("             return self.products[product_name]" + "\n")
+            f.write("          else:" + "\n")
+            f.write("              return 0" + "\n")
 
 if __name__ == '__main__':
-    CreateWarehouseClassFactory(True, True)
+    CreateWarehouseClassFactory(True, True," ")

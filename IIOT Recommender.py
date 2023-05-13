@@ -110,35 +110,30 @@ def ProcessInputData():
                             bolPallet = False
                 Totalpts += Choice
             # print(str(col), ' ', str(dfsurveyResults.loc[row, col])[0])
-        PrintResults(Totalpts, NotMature, bolPallet, bolProduct)
+        PrintResults(Totalpts, NotMature, bolPallet, bolProduct,WHname)
         CreateClassDiagram(WHname, bolPallet, bolProduct)
 
-def PrintResults(Totalpts, NotMature, bolPallet, bolProduct):
+def PrintResults(Totalpts, NotMature, bolPallet, bolProduct,WHname):
     print()
     print('Total Calculated pts = ' + str(Totalpts))
 
     if NotMature == True:
         print('Warehouse needs to get IT systems and/or Network upgrade.')
     elif Totalpts <= 260:  # Maturity Level 1
-        print('Warehouse is at Maturity Level 1 and could begin with Barcode scanning with affixed labels to the Product/container.')
-        print('Hereunder is some Class Factory code to use in your Warehouse system.')
-        ClassFactory.CreateWarehouseClassFactory(bolPallet, bolProduct)
+        print('Warehouse ' + WHname + ' is at Maturity Level 1 and could begin with Barcode scanning with affixed labels to the Product/container.')
+        ClassFactory.CreateWarehouseClassFactory(bolPallet, bolProduct,WHname)
     elif Totalpts <= 360:  # Maturity Level 2
-        print('Warehouse is at Maturity Level 2 and could begin with a mix of RFDT tags or Barcode scanning with labels affixed to the Product/container.')
-        print('Hereunder is some Class Factory code to use in your Warehouse system.')
-        ClassFactory.CreateWarehouseClassFactory(bolPallet, bolProduct)
+        print('Warehouse ' + WHname + ' is at Maturity Level 2 and could begin with a mix of RFDT tags or Barcode scanning with labels affixed to the Product/container.')
+        ClassFactory.CreateWarehouseClassFactory(bolPallet, bolProduct,WHname)
     elif Totalpts <= 470:  # Maturity Level 3
-        print('Warehouse is at Maturity Level 3 and could begin with a mix of IIOT devices or RFDT tags attached to the Product/container.')
-        print('Hereunder is some Class Factory code to use in your Warehouse system.')
-        ClassFactory.CreateWarehouseClassFactory(bolPallet, bolProduct)
+        print('Warehouse ' + WHname + ' is at Maturity Level 3 and could begin with a mix of IIOT devices or RFDT tags attached to the Product/container.')
+        ClassFactory.CreateWarehouseClassFactory(bolPallet, bolProduct,WHname)
     elif Totalpts <= 580:  # Maturity Level 4
-        print('Warehouse is at Maturity Level 4 and could begin using IIOT devices to trace movement of your Product/container.')
-        print('Hereunder is some Class Factory code to use in your Warehouse system.')
-        ClassFactory.CreateWarehouseClassFactory(bolPallet, bolProduct)
+        print('Warehouse ' + WHname + ' is at Maturity Level 4 and could begin using IIOT devices to trace movement of your Product/container.')
+        ClassFactory.CreateWarehouseClassFactory(bolPallet, bolProduct,WHname)
     else:  # Maturity Level 5
-        print('Warehouse is at Maturity Level 5 and is full Industry 4.0 compliant.')
-        print('Hereunder is some Class Factory code to use in your Warehouse system.')
-        ClassFactory.CreateWarehouseClassFactory(bolPallet, bolProduct)
+        print('Warehouse ' + WHname + ' is at Maturity Level 5 and should aim to become I4.0 compliant.')
+        ClassFactory.CreateWarehouseClassFactory(bolPallet, bolProduct,WHname)
 
     print()
     print('========================================================================================')
