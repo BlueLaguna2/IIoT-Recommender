@@ -47,8 +47,8 @@ def CreateWarehouseClassFactory(bolPallet, bolProduct,WHname):
         if bolProduct:
             f.write("    def check_stock(self, product_name):" + "\n")
             f.write("         if product_name in self.products:" + "\n")
-            f.write("             return self.products[product_name]" + "\n")
-            f.write("          else:" + "\n")
+            f.write("               return self.products[product_name]" + "\n")
+            f.write("         else:" + "\n")
             f.write("              return 0" + "\n")
 
 if __name__ == '__main__':

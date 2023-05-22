@@ -18,6 +18,3 @@ class Warehouse:
          else:
              print('Error: Pallet ID does not exist')
  
-oduct_name]
-          else:
-              return 0

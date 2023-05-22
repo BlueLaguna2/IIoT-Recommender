@@ -33,6 +33,6 @@ class Warehouse:
  
     def check_stock(self, product_name):
          if product_name in self.products:
-             return self.products[product_name]
-          else:
+               return self.products[product_name]
+         else:
               return 0
